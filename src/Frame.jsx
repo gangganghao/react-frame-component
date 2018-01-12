@@ -82,7 +82,9 @@ export default class Frame extends Component {
     if (this.props.mountTarget) {
       return doc.querySelector(this.props.mountTarget);
     }
-    return doc.body.children[0];
+    if (doc)
+      return doc.body.children[0];
+    return null;
   }
 
   renderFrameContents() {
